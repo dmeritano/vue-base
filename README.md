@@ -1,11 +1,13 @@
 Proyecto base creado con vue/CLI
 Vue 3 - Vanilla Javascript - ES6
 
-Version 1.0
+Version 2.0
 
-Con implementaciones basicas de 
- - vue-router
- - vuex
- - Carga de un archivo de configuracion config.json al iniciar la aplicacion desde public/config.json, el cual
-   se agrega como propiedad a la instancia de Vue para que pueda usarse en toda la aplicación.
+A la version 1.0 se le agrega internacionalizacion con i18n
 
+  > vue add i18n
+
+Los archivos con los mensajes estan en src/locales y se cargan
+en el proceso de compilado de la aplicación (i18.js , plugin vue-cli-plugin-i18n)
+
+En LoginPage.vue se muestra como mostrar mensajes traducidos y como cambiar/establecer el locale a nuestro parecer.

@@ -1,0 +1,5 @@
+{
+  "message": "hello i18n, {number}",
+  "text": "flower | flowers",
+  "lobos": "no wolf | one wolf | a pack of {n} wolves"
+}

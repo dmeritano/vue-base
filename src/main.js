@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { routes } from './router'
 import { store } from './store'
 import makeEnvConfig from './services/service-config'
+import i18n from './i18n'
 
 
 const router = createRouter({
@@ -18,6 +19,7 @@ makeEnvConfig().then(
         app.config.globalProperties.$EnvConfig = EnvConfig
         app.use(router)
         app.use(store)
+        app.use(i18n)
         app.mount('#app')            
     }
 )
