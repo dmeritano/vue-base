@@ -6,6 +6,10 @@ import { store } from './store'
 import makeEnvConfig from './services/service-config'
 import i18n from './i18n'
 
+//Bootstraop 5.x
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.min'
+
 
 const router = createRouter({
     history: createWebHistory(),
@@ -24,3 +28,4 @@ makeEnvConfig().then(
     }
 )
 .catch( (error) => console.error("ERROR: configuration file not loaded", error))
+

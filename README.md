@@ -1,13 +1,18 @@
 Proyecto base creado con vue/CLI
 Vue 3 - Vanilla Javascript - ES6
 
-Version 2.0
+Version 3.0
 
-A la version 1.0 se le agrega internacionalizacion con i18n
+A la version 2.0 se le agrega un poco de estilos con Bootstrap 5.x
 
-  > vue add i18n
+  > npm add bootstrap
 
-Los archivos con los mensajes estan en src/locales y se cargan
-en el proceso de compilado de la aplicación (i18.js , plugin vue-cli-plugin-i18n)
+main.js
 
-En LoginPage.vue se muestra como mostrar mensajes traducidos y como cambiar/establecer el locale a nuestro parecer.
+> import 'bootstrap/dist/css/bootstrap.min.css'
+
+> import 'bootstrap/dist/js/bootstrap.min'
+
+Pruebas sencillas de Bootstrap en LoginPage.vue
+
+

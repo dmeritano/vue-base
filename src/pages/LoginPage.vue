@@ -1,17 +1,27 @@
 <template>
-  <div class="login">
+  <div class="container mt-5">
     <h2>Login page</h2>
 
-    <div>
-      <button @click="idioma('es')">Español</button>
-      <button @click="idioma('en')">English</button>
+    <div class="row">
+      <div class="col col-auto">
+        <button class="btn btn-primary btn-sm" @click="idioma('es')">
+          Español
+        </button>
+      </div>
+      <div class="col col-auto">
+        <button class="btn btn-primary btn-sm" @click="idioma('en')">
+          English
+        </button>
+      </div>
     </div>
 
-    <p>{{ "Mensaje:" + $t("message", { number: 18 }) }}</p>
-    <p>{{ $t("text", 2) }}</p>
-    <p>{{ $t("lobos", 0) }}</p>
-    <p>{{ $t("lobos", 1) }}</p>
-    <p>{{ $t("lobos", 2, { n: 3 }) }}</p>
+    <div class="mt-5">
+      <p>{{ "Mensaje:" + $t("message", { number: 18 }) }}</p>
+      <p>{{ $t("text", 2) }}</p>
+      <p>{{ $t("lobos", 0) }}</p>
+      <p>{{ $t("lobos", 1) }}</p>
+      <p>{{ $t("lobos", 2, { n: 3 }) }}</p>
+    </div>
   </div>
 </template>
 
@@ -33,8 +43,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.login {
-  padding: 20px 20px;
-}
-</style>
+<style scoped></style>
