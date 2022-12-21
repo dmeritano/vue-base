@@ -1,18 +1,28 @@
 Proyecto base creado con vue/CLI
 Vue 3 - Vanilla Javascript - ES6
 
-Version 3.0
+Version 4.0
 
-A la version 2.0 se le agrega un poco de estilos con Bootstrap 5.x
+A la version 3.0 se le agrega:
 
-  > npm add bootstrap
+* Autenticacion basica, implementando rutas protegidas (Home)
+* Logout
+* Persistencia en Vuex con **vuex-persit**
+* <code>npm install vuex-persist</code>
+* Storage: configuración básica para usar localStorage
+<pre>
+    import VuexPersistence from 'vuex-persist'
 
-main.js
-
-> import 'bootstrap/dist/css/bootstrap.min.css'
-
-> import 'bootstrap/dist/js/bootstrap.min'
-
-Pruebas sencillas de Bootstrap en LoginPage.vue
+    ...
+    plugins:[
+        new VuexPersistence({
+            storage: window.localStorage
+        }).plugin
+    ]
+</pre>
+* Tambien se puede usar IndexDB en vez de localstorage, dado que éste ultimo solo puede albergar hasta 5MB.
+* > Para usar IndexDB se puede usar un plugin como **localforage**
+* Hoja de estilos global para toda la aplicacion, cargada en main.js luego de importar bootstrap:
+* > import '@/assets/css/global.css'; 
 
 

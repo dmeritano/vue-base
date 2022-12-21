@@ -15,6 +15,38 @@
       </div>
     </div>
 
+    <div class="row">
+      <div class="col">
+        <div class="mt-5 mb-5" style="max-width: 400px">
+          <form @submit.prevent>
+            <div class="mb-3">
+              <label for="user" class="form-label"
+                >User</label
+              >
+              <input
+                v-model="user"
+                type="text"
+                class="form-control"
+                id="user"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="pass" class="form-label"
+                >Password</label
+              >
+              <input
+                v-model="pass"
+                type="password"
+                class="form-control"
+                id="pass"
+              />
+            </div>
+            <button type="button"  @click="login()" class="btn btn-primary">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    U: {{user}} - P: {{pass}}
     <div class="mt-5">
       <p>{{ "Mensaje:" + $t("message", { number: 18 }) }}</p>
       <p>{{ $t("text", 2) }}</p>
@@ -26,18 +58,37 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   data() {
-    return {}
+    return {
+      user:"",
+      pass:""
+    }
   },
   mounted() {},
   methods: {
+    ...mapActions(["loginAction"]),
     idioma(idioma) {
       if (idioma === "en") {
         this.$i18n.locale = "en"
       } else {
         this.$i18n.locale = "es"
       }
+    },
+    login() {
+      const payload = {
+        user:this.user,
+        pass:this.pass
+      }
+      try {
+        this.loginAction(payload)
+        this.$router.push("/")
+      } catch (error) {
+        console.log(error);
+      }
+      
     },
   },
 }

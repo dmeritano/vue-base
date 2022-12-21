@@ -10,10 +10,28 @@ import i18n from './i18n'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min'
 
+//Global styles
+import '@/assets/css/global.css';
+
 
 const router = createRouter({
     history: createWebHistory(),
     routes,
+})
+
+router.beforeEach( (to, from, next) => {
+    if (to.matched.some(route => route.meta.requiresAuth)){
+        if(!store.getters.authenticated){
+            next('/login')
+        }else{
+            next()
+        }
+    }else if (to.fullPath.toLocaleLowerCase() === "/login" &&
+            store.getters.authenticated){
+        next('/home')
+    }else{
+        next()
+    }
 })
 
 makeEnvConfig().then(
