@@ -1,3 +1,4 @@
 {
-    "showAppFooter" : true
+    "showAppFooter" : true,
+    "serviceBaseUrl" : "http://localhost/DmsRestServiceDTOP411"
 }

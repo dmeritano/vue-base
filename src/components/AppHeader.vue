@@ -38,6 +38,8 @@ export default {
       this.$store.dispatch('logoutAction')
       this.$router.push("/login")
     }
+  },
+  mounted(){
   }
 }
 </script>
