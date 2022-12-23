@@ -1,17 +1,18 @@
 Proyecto base creado con vue/CLI
 Vue 3 - Vanilla Javascript - ES6
 
-Version 7.0
+Version 8.0
 
-A la version 6.0 se le agrega:
+A la version 7.0 se le agrega:
 
-En esta version mejore la estructura del store, creando un modulo para lo referido a usuarios (modules/users.js)
-y deje el modulo root/index.js para variables comunes a toda la aplicacion.
-
-Implementé lo de acceder desde un modulo a actions de otro modulo y como acceder desde los componentes a
-accions, getters, etc de otros modulos que no sea el root.
-
-Cree el servicio de usuarios (service-apidms.js) e implenté correctamente (en el store users) las funciones
-de login, logout y dmsInfo.
+*  AppLoading componente, para mostrar ocultar con las peticions al servidor
+*  Mas traducciones para los principales texto
+*  Formulario de login limpio y funcional
+*  AppHeader con seletor de idioma
+*  Home (lista de usuarios) con tabla básica mostrando la lista de usaurios obtenidas del servicio.
 
 
+### IMPORTANTE
+---
+
+No se continuará con este proyecto. Quedará como proyecto base.

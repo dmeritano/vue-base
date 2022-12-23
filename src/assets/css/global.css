@@ -1,21 +1,47 @@
-/* Barra de navegacion - Look and feel GoodOK */
-.navbar-dark .navbar-brand {
+/* Global Styles and Look and Feel GoodOK */
+body {
+	font-family: Arial, sans-serif;
+	color: #000;
+}
+.custom-input{
+	border:1px solid #0092A2;
+	border-radius:8px;	
+}
+
+.btn-default {
 	color: #fff;
-	font-weight: bold;
+	background-color: #2f99a5;
+	border: none;
 }
-.navbar-dark .navbar-nav > li > a {
-	color: #fff;
+
+.btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+	opacity: 1;
+	color: #FFFFFF;
+	background-color: #0092A2;
+	border: none;
+	outline: none !important;
 }
-.navbar-inverse .navbar-nav > li > a:hover {
-	font-weight: bold;
+
+.btn-default:hover {
+	color: #333;
+	background-color: #e6e6e6;
+	color: #FFFFFF;
+	background-color: #b2b2b2;
 }
-.navbar-dark {
-	background: linear-gradient(to right, #0a969c, #c4d826);
+
+.btn {
+	display: inline-block;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.5;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	touch-action: manipulation;
+	border-radius: 30px;
 }
-.logo-menu {
-	padding-top: 10px;
-}
-.logo-menu > img {
-	width:135px;
-	height:33px;	
-}
+
+
+

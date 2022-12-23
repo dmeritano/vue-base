@@ -1,4 +1,15 @@
 {
+  "HTML_HEAD_TITLE_BASE" : "User's Administration",
+  "HTML_HEAD_TITLE_LOGIN" : "Login",
+  "HTML_HEAD_TITLE_HOMEPAGE" : "Home",
+  "HEADER_HOME_LINK" : "Home",
+  "HEADER_LOGIN_LINK" : "Login",
+  "HEADER_LOGOUT_LINK" : "Logout",
+  "HEADER_LOCALE_SHORT_NAME" : "EN",
+  "HEADER_LOCALE_LONG_NAME_EN" : "English",
+  "HEADER_LOCALE_LONG_NAME_ES" : "Spanish",
+  "HOME_MAIN_TITLE" : "User List",  
+  "LOGIN_MAIN_TITLE" : "User's Administration", 
   "message": "hello i18n, {number}",
   "text": "flower | flowers",
   "lobos": "no wolf | one wolf | a pack of {n} wolves"

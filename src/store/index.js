@@ -4,11 +4,15 @@ import moduleUsers from './modules/users'
 
 export const store = createStore({
     state:{
-        authenticated:false
+        authenticated:false,
+        isLoading:false
     },
     getters:{
         authenticated(state){
             return state.authenticated
+        },
+        isLoading(state){
+            return state.isLoading
         }
     },
     mutations:{
@@ -17,9 +21,16 @@ export const store = createStore({
         },
         logout:(state) => {
             state.authenticated = false
+        },
+        isLoading(state, value){
+            state.isLoading = value
         }
     },
-    actions:{},
+    actions:{
+        isLoading(context, value){
+            context.commit("isLoading", value)
+        }
+    },
     modules:{
         moduleUsers
     },

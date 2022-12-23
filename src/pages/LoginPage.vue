@@ -1,77 +1,67 @@
 <template>
   <div class="container mt-5">
-    <h2>Login page</h2>
+    <div class="login-container">
+      <h4 class="text-center py-4">{{$t("LOGIN_MAIN_TITLE")}}</h4>
 
-    <div class="row">
-      <div class="col col-auto">
-        <button class="btn btn-primary btn-sm" @click="idioma('es')">
-          Español
-        </button>
-      </div>
-      <div class="col col-auto">
-        <button class="btn btn-primary btn-sm" @click="idioma('en')">
-          English
-        </button>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col">
-        <div class="mt-5 mb-5" style="max-width: 400px">
-          <form @submit.prevent>
-            <div class="mb-3">
-              <label for="user" class="form-label"
-                >User</label
-              >
-              <input
-                v-model="user"
-                type="text"
-                class="form-control"
-                id="user"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="pass" class="form-label"
-                >Password</label
-              >
-              <input
-                v-model="pass"
-                type="password"
-                class="form-control"
-                id="pass"
-              />
-            </div>
-            <button type="button"  @click="authenticate()" class="btn btn-primary">Login</button>
-          </form>
+      <form class="login-form" @submit.prevent>
+        <div class="row">
+          <div class="col-md-12 form-group">
+            <input
+              type="text"
+              class="form-control custom-input"
+              id="user"
+              v-model="user"
+              placeholder="Usuario"
+            />
+          </div>
         </div>
-      </div>
-    </div>
-    U: {{user}} - P: {{pass}}
-    <div class="mt-5">
-      <p>{{ "Mensaje:" + $t("message", { number: 18 }) }}</p>
-      <p>{{ $t("text", 2) }}</p>
-      <p>{{ $t("lobos", 0) }}</p>
-      <p>{{ $t("lobos", 1) }}</p>
-      <p>{{ $t("lobos", 2, { n: 3 }) }}</p>
+        <div class="row mt-2">
+          <div class="col-md-12 form-group">
+            <input
+              type="password"
+              class="form-control custom-input"
+              id="pass"
+              v-model="pass"
+              placeholder="Contraseña"
+            />
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-12 form-group text-center">
+            <button
+              type="submit"
+              class="btn btn-default"
+              @click="authenticate()"
+            >
+              Entrar
+            </button>
+            <div class="text-center text-muted pt-2"><small>v1.0</small></div>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions } from "vuex"
 
 export default {
   data() {
     return {
-      user:"admin",
-      pass:"admin"
+      user: "admin",
+      pass: "admin",
     }
   },
-  mounted() {},
+  mounted() {
+    document.title =
+      this.$t("HTML_HEAD_TITLE_BASE") + " - " + this.$t("HTML_HEAD_TITLE_LOGIN")
+  },
   methods: {
     ...mapActions({
-      login : "moduleUsers/login",
-      dmsInfo : "moduleUsers/dmsInfo",
+      login: "moduleUsers/login",
+      dmsInfo: "moduleUsers/dmsInfo",
+      setLoading: "isLoading",
     }),
     idioma(idioma) {
       if (idioma === "en") {
@@ -82,20 +72,28 @@ export default {
     },
     async authenticate() {
       const payload = {
-        user:this.user,
-        pass:this.pass
+        user: this.user,
+        pass: this.pass,
       }
-      try {        
+      try {
+        this.setLoading(true)
         await this.login(payload)
         await this.dmsInfo()
-        
+        this.setLoading(false)
+
         this.$router.push("/")
       } catch (error) {
-        console.log(error);
-      }      
+        console.log(error)
+      }
     },
   },
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.login-container {
+  width: 320px;
+  max-width: 100%;
+  margin: 80px auto;
+}
+</style>
