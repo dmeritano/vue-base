@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import VuexPersistence from 'vuex-persist'
+import moduleUsers from './modules/users'
 
 export const store = createStore({
     state:{
@@ -11,30 +12,20 @@ export const store = createStore({
         }
     },
     mutations:{
-        login:(state, payload)=>{         
-            if (payload.user === "admin" && payload.pass === "admin"){
-                state.authenticated = true
-            }
-            
+        login:(state)=>{        
+            state.authenticated = true
         },
         logout:(state) => {
             state.authenticated = false
         }
     },
-    actions:{
-        loginAction:(context, payload) => {
-            context.commit('login', payload)
-        },
-        logoutAction:(context) => {
-            context.commit('logout')
-        }
+    actions:{},
+    modules:{
+        moduleUsers
     },
-    modules:{},
     plugins:[
         new VuexPersistence({
             storage: window.localStorage
         }).plugin
     ]
-
-    
 })

@@ -41,7 +41,7 @@
                 id="pass"
               />
             </div>
-            <button type="button"  @click="login()" class="btn btn-primary">Login</button>
+            <button type="button"  @click="authenticate()" class="btn btn-primary">Login</button>
           </form>
         </div>
       </div>
@@ -63,13 +63,16 @@ import { mapActions } from 'vuex'
 export default {
   data() {
     return {
-      user:"",
-      pass:""
+      user:"admin",
+      pass:"admin"
     }
   },
   mounted() {},
   methods: {
-    ...mapActions(["loginAction"]),
+    ...mapActions({
+      login : "moduleUsers/login",
+      dmsInfo : "moduleUsers/dmsInfo",
+    }),
     idioma(idioma) {
       if (idioma === "en") {
         this.$i18n.locale = "en"
@@ -77,18 +80,19 @@ export default {
         this.$i18n.locale = "es"
       }
     },
-    login() {
+    async authenticate() {
       const payload = {
         user:this.user,
         pass:this.pass
       }
-      try {
-        this.loginAction(payload)
+      try {        
+        await this.login(payload)
+        await this.dmsInfo()
+        
         this.$router.push("/")
       } catch (error) {
         console.log(error);
-      }
-      
+      }      
     },
   },
 }
